@@ -20,7 +20,6 @@ The player has to interact with another element that move randomly around the ca
 - Once logic is completed, create graphical interface
 - Add sounds
 - Add difficulty levels
-- Define balance frequency function
 
 ## Data structure
 
