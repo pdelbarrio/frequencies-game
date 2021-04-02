@@ -39,18 +39,27 @@ The player has to interact with another element that move randomly around the ca
 
    Functions required:
 
-   1. buildDOM(string) {}: Should take a string of hardcoded HTML, create an element and append it to the DOM
-2. 
-   
+   1. buildDOM(htmlString) {}: Should take a string of hardcoded HTML, create an element and append it to the DOM
+2. createSplashScreen() {}:
+   3. removeSplashScreen() {}:
+4. createGameScreen() {}:
+   5. removeGameScreen() {}:
+6. createGameOverScreen() {}:
+   7. removeGameOverScreen() {}:
+8. startGame() {}:
+   9. endGame() {}:
+10. createInfoScreen() {}:
+   11. removeInfoScreen() {}:
 
    
-
    
-
    
-
    
-### 
+   
+   
+   
+   
+   ### 
    
    ​	
 
