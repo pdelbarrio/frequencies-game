@@ -10,7 +10,7 @@ Juego basado en la película Frequencies, ambientada en un mundo donde las perso
 
 El jugador debe moverse e interactuar con otro elemento que se mueve aleatoriamente por el canvas para lograr equilibrar su nivel de frecuencia. El jugador tiene 0 nivel de frecuencia y el otro elemento tiene 10, cuando colisionen ambos deben ponerse a 5. En este MVP hay una cuenta atrás de 10 segundos. Si consigue equilibrarse gana, si pasa el tiempo sin equilibrarse pierde.
 
-The player has to interact with another element that move randomly around the canvas to balance their frequency level. The player has 0 level of frequency and the other element has 10. When they collide, both levels must have equal frequency level, 5 in this case. In this MVP there's a countdown of 10 seconds. If the player get balanced with the other element wins, if the times run out without getting balanced, the player loses.
+The player has to interact with another element that move randomly around the canvas to balance their frequency level. The player has 0 level of frequency and the other element has 10. When they collide, both levels must have equal frequency level, 5 in this case. In this MVP there's a countdown of 10 seconds. If the player gets balanced with the other element wins, if the time runs out without getting balanced, the player loses.
 
 ## Backlog
 
@@ -39,8 +39,8 @@ The player has to interact with another element that move randomly around the ca
 
    Functions required:
 
-   buildDOM(string) {}: Should take a string of hardcoded HTML, create an element and append it to the DOM
-
+   1. buildDOM(string) {}: Should take a string of hardcoded HTML, create an element and append it to the DOM
+2. 
    
 
    
@@ -49,8 +49,9 @@ The player has to interact with another element that move randomly around the ca
 
    
 
-   ### 
-
+   
+### 
+   
    ​	
 
 ## States y States Transitions
@@ -64,7 +65,18 @@ Definition of the different states and their transition (transition functions)
 
 ## Task
 
-Task definition in order of priority
+- Main - buildDom
+- Main - buildSplashScreen
+- Main - addEventListener
+- Main - buildGameScreen
+- Main - buildGameOverScreen
+- Game - buildCanvas
+- Game - clearCanvas
+- Game - updateCanvas
+- Game - drawCanvas
+- Game - setGameOver
+- Game - collision
+- Game - addEventListener
 
 ## Links
 
