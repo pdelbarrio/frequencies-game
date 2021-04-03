@@ -43,8 +43,10 @@ The player has to interact with another element that move randomly around the ca
 
    3. removeSplashScreen() {}: Function to remove the splashScreen created in createSplashScreen(). The value of splashScreen still exists but the code has been removed from the DOM.
 
-   4. createGameScreen() {}:
-   5. removeGameScreen() {}:
+   4. createGameScreen() {}: Function to create the gameScreen passing and htmlString to buildDom() function and append it to the body.
+
+   5. removeGameScreen() {}: Function to remove the gameScreen.
+
    6. createGameOverScreen() {}:
    7. removeGameOverScreen() {}:
    8. startGame() {}:

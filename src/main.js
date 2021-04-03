@@ -37,11 +37,37 @@ function removeSplashScreen() {
 }
 
 //Game screen
-function createGameScreen() {}
-function removeGameScreen() {}
+function createGameScreen() {
+  gameScreen = builDom(`
+  <main class="game-container">
+      <header>
+          <div class="lives">
+              <span class="label">Lives:</span>
+              <span class="value"></span>
+          </div>
+
+          <div class="score">
+              <span class="label">Score</span>
+              <span class="value"></span>
+          </div>
+      </header>
+
+      <div class="canvas-container">
+          <canvas></canvas>
+      </div>
+  </main>
+  `);
+
+  document.body.appendChild(gameScreen);
+  return gameScreen;
+}
+function removeGameScreen() {
+  gameScreen.remove();
+}
 
 //Game over screen
 function createGameOverScreen() {}
+
 function removeGameOverScreen() {}
 
 //Setting the game state - start or game over
