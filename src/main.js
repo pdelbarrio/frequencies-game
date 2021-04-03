@@ -39,7 +39,7 @@ function removeSplashScreen() {
 //Game screen
 function createGameScreen() {
   gameScreen = builDom(`
-  <main class="game-container">
+  <main class="game container">
       <header>
           <div class="lives">
               <span class="label">Lives:</span>
@@ -47,7 +47,7 @@ function createGameScreen() {
           </div>
 
           <div class="score">
-              <span class="label">Score</span>
+              <span class="label">Score:</span>
               <span class="value"></span>
           </div>
       </header>
@@ -71,7 +71,14 @@ function createGameOverScreen() {}
 function removeGameOverScreen() {}
 
 //Setting the game state - start or game over
-function startGame() {}
+function startGame() {
+  removeSplashScreen();
+  createGameScreen();
+
+  game = new Game();
+  game.gameScreen = gameScreen;
+}
+
 function endGame(score) {}
 window.addEventListener("load", createSplashScreen);
 

@@ -43,16 +43,27 @@ The player has to interact with another element that move randomly around the ca
 
    3. removeSplashScreen() {}: Function to remove the splashScreen created in createSplashScreen(). The value of splashScreen still exists but the code has been removed from the DOM.
 
-   4. createGameScreen() {}: Function to create the gameScreen passing and htmlString to buildDom() function and append it to the body.
+   4. createGameScreen() {}: Function to create the gameScreen passing an htmlString to buildDom() function and append it to the body.
 
    5. removeGameScreen() {}: Function to remove the gameScreen.
 
    6. createGameOverScreen() {}:
+
    7. removeGameOverScreen() {}:
-   8. startGame() {}:
+
+   8. startGame() {}: Function that includes the functions removeSplashScreen() and createGameScreen(). In this function is also created one game instance of Game class, the gameScreen created in createGameScreen() is assigned to this instance and we can access to game.start() method.
+
    9. endGame() {}:
+
    10. createInfoScreen() {}:
+
    11. removeInfoScreen() {}:
+
+   ### 3. game.js
+
+   1. Includes 1 Game class with the canvas, player, defenders, goalkeeper, ball, gameIsOver, timer and null properties.
+
+   Includes X methods:
 
 ###
 
@@ -70,11 +81,12 @@ Definition of the different states and their transition (transition functions)
 ## Task
 
 - Main - buildDom
-- Main - buildSplashScreen
+- Main - createSplashScreen
 - Main - addEventListener
-- Main - buildGameScreen
-- Main - buildGameOverScreen
-- Game - buildCanvas
+- Main - removeSplashScreen
+- Main - createGameScreen
+- Main - startGame
+
 - Game - clearCanvas
 - Game - updateCanvas
 - Game - drawCanvas
