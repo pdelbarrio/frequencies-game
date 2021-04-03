@@ -33,7 +33,6 @@ function createSplashScreen() {
 
 function removeSplashScreen() {
   splashScreen.remove();
-  console.log(splashScreen);
 }
 
 //Game screen
@@ -75,8 +74,9 @@ function startGame() {
   removeSplashScreen();
   createGameScreen();
 
-  game = new Game();
-  game.gameScreen = gameScreen;
+  game = new Game(gameScreen);
+
+  game.start();
 }
 
 function endGame(score) {}

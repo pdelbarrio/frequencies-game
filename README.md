@@ -21,49 +21,61 @@ The player has to interact with another element that move randomly around the ca
 
 ## Data structure
 
-1. index.html
+1.  index.html
 
-2. main.js
+2.  main.js
 
-3. game.js
+3.  game.js
 
-4. player.js
+4.  player.js
 
-5. timer.js
+5.  timer.js
 
-   ### 1. index.html
+    ### 1. index.html
 
-   ### 2. main.js
+    ### 2. main.js
 
-   Functions required:
+    Functions required:
 
-   1. buildDOM(htmlString) {}: Should take a string of hardcoded HTML, create an element and append it to the DOM.
+    1. buildDOM(htmlString) {}: Should take a string of hardcoded HTML, create an element and append it to the DOM.
 
-   2. createSplashScreen() {}: Function to create the splashScreen that we will create passing an htmlString to buildDom() function and append it to the body. This function will also create the startButton constant in which we will add an addEventListener function to call the startGame function with a "click" event.
+    2. createSplashScreen() {}: Function to create the splashScreen that we will create passing an htmlString to buildDom() function and append it to the body. This function will also create the startButton constant in which we will add an addEventListener function to call the startGame function with a "click" event.
 
-   3. removeSplashScreen() {}: Function to remove the splashScreen created in createSplashScreen(). The value of splashScreen still exists but the code has been removed from the DOM.
+    3. removeSplashScreen() {}: Function to remove the splashScreen created in createSplashScreen(). The value of splashScreen still exists but the code has been removed from the DOM.
 
-   4. createGameScreen() {}: Function to create the gameScreen passing an htmlString to buildDom() function and append it to the body.
+    4. createGameScreen() {}: Function to create the gameScreen passing an htmlString to buildDom() function and append it to the body.
 
-   5. removeGameScreen() {}: Function to remove the gameScreen.
+    5. removeGameScreen() {}: Function to remove the gameScreen.
 
-   6. createGameOverScreen() {}:
+    6. createGameOverScreen() {}:
 
-   7. removeGameOverScreen() {}:
+    7. removeGameOverScreen() {}:
 
-   8. startGame() {}: Function that includes the functions removeSplashScreen() and createGameScreen(). In this function is also created one game instance of Game class, the gameScreen created in createGameScreen() is assigned to this instance and we can access to game.start() method.
+    8. startGame() {}: Function that includes the functions removeSplashScreen() and createGameScreen(). In this function is also created one game instance of Game class, the gameScreen created in createGameScreen() is assigned to this instance and we can access to game.start() method.
 
-   9. endGame() {}:
+    9. endGame() {}:
 
-   10. createInfoScreen() {}:
+    10. createInfoScreen() {}:
 
-   11. removeInfoScreen() {}:
+    11. removeInfoScreen() {}:
 
-   ### 3. game.js
+    ### 3. game.js
 
-   1. Includes 1 Game class with the canvas, player, defenders, goalkeeper, ball, gameIsOver, timer and null properties.
+    1. Includes 1 Game class with the canvas, player, gameIsOver, timer and null properties.
 
-   Includes X methods:
+    Includes X methods:
+
+         Start: includes the following commands:
+
+            Selects the lives and score elements from the gameScreen.
+            Generates canvas container and dimensions.
+            Generates a Player instance.
+
+    ### 4. player.js
+
+    1.  Includes 1 Player class with the lives, the size, the initial position, the direction and the speed properties.
+
+    Includes X methods:
 
 ###
 
@@ -76,6 +88,7 @@ Definition of the different states and their transition (transition functions)
 - splashScreen
 - gameScreen
 - gameoverScreen
+- infoScreen
 - winScreen
 
 ## Task
@@ -86,7 +99,7 @@ Definition of the different states and their transition (transition functions)
 - Main - removeSplashScreen
 - Main - createGameScreen
 - Main - startGame
-
+- Game - start
 - Game - clearCanvas
 - Game - updateCanvas
 - Game - drawCanvas
