@@ -11,11 +11,30 @@ let infoScreen;
 function builDom(htmlString) {
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = htmlString;
+
+  return tempDiv.children[0];
 }
 
 //Splash screen
-function createSplashScreen() {}
-function removeSplashScreen() {}
+function createSplashScreen() {
+  splashScreen = builDom(`
+  <main>
+    <h1>Frequencies Game</h1>
+    <button>Start</button>
+  </main>
+
+  `);
+
+  document.body.appendChild(splashScreen);
+  const startButton = splashScreen.querySelector("button");
+
+  startButton.addEventListener("click", startGame);
+}
+
+function removeSplashScreen() {
+  splashScreen.remove();
+  console.log(splashScreen);
+}
 
 //Game screen
 function createGameScreen() {}

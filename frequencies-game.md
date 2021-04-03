@@ -4,8 +4,6 @@
 
 Juego basado en la película Frequencies, ambientada en un mundo donde las personas se rigen por frecuencias. Si una persona tiene la frecuencia muy alta tiene buena suerte pero no tiene emociones, si tiene la frecuencia baja es torpe pero tiene emociones. El jugador/personaje empieza con 0 unidades de frecuencia e inicia el juego donde hay otros elementos moviéndose aleatoriamente por el canvas con diferentes niveles de frecuencia. Su misión es ir colisionando con el resto de elementos para ir nivelando las frecuencias en una cuenta atrás. Si logra el equilibrio entre todos los elementos sube de nivel y se encuentra con otra pantalla con más personajes con los que nivelar la frecuencia. Si acaba el tiempo y no logra el equilibrio de frecuencias pierde una vida, tiene tres vidas.
 
-
-
 ## MVP (DOM - CANVAS)
 
 El jugador debe moverse e interactuar con otro elemento que se mueve aleatoriamente por el canvas para lograr equilibrar su nivel de frecuencia. El jugador tiene 0 nivel de frecuencia y el otro elemento tiene 10, cuando colisionen ambos deben ponerse a 5. En este MVP hay una cuenta atrás de 10 segundos. Si consigue equilibrarse gana, si pasa el tiempo sin equilibrarse pierde.
@@ -39,29 +37,24 @@ The player has to interact with another element that move randomly around the ca
 
    Functions required:
 
-   1. buildDOM(htmlString) {}: Should take a string of hardcoded HTML, create an element and append it to the DOM
-2. createSplashScreen() {}:
-   3. removeSplashScreen() {}:
-4. createGameScreen() {}:
+   1. buildDOM(htmlString) {}: Should take a string of hardcoded HTML, create an element and append it to the DOM.
+
+   2. createSplashScreen() {}: Function to create the splashScreen that we will create passing an htmlString to buildDom() function and append it to the body. This function will also create the startButton constant in which we will add an addEventListener function to call the startGame function with a "click" event.
+
+   3. removeSplashScreen() {}: Function to remove the splashScreen created in createSplashScreen(). The value of splashScreen still exists but the code has been removed from the DOM.
+
+   4. createGameScreen() {}:
    5. removeGameScreen() {}:
-6. createGameOverScreen() {}:
+   6. createGameOverScreen() {}:
    7. removeGameOverScreen() {}:
-8. startGame() {}:
+   8. startGame() {}:
    9. endGame() {}:
-10. createInfoScreen() {}:
+   10. createInfoScreen() {}:
    11. removeInfoScreen() {}:
 
-   
-   
-   
-   
-   
-   
-   
-   
-   ### 
-   
-   ​	
+###
+
+​
 
 ## States y States Transitions
 
