@@ -77,6 +77,12 @@ The player has to interact with another element that move randomly around the ca
 
     Includes X methods:
 
+        setDirection
+        updatePosition
+        handleScreenCollision
+        removeLive
+        draw
+
 ###
 
 ​
@@ -99,6 +105,7 @@ Definition of the different states and their transition (transition functions)
 - Main - removeSplashScreen
 - Main - createGameScreen
 - Main - startGame
+
 - Game - start
 - Game - clearCanvas
 - Game - updateCanvas
@@ -115,7 +122,7 @@ Definition of the different states and their transition (transition functions)
 
 ### Git
 
-URls for the project repo and deploy [Link Repo](http://github.com/) [Link Deploy](http://github.com/)
+URls for the project repo and deploy [Link Repo](https://github.com/pdelbarrio/frequencies-game) [Link Deploy](http://github.com/)
 
 ### Slides
 
