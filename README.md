@@ -91,6 +91,7 @@ The player has to interact with another element that move randomly around the ca
         handleScreenCollision
         removeLive
         draw
+        didcollide
 
     ### 5. mainentity.js
 
@@ -130,6 +131,8 @@ Definition of the different states and their transition (transition functions)
 - Entity - draw
 - Game - handleKeyDown
 - Game - startLoop
+- Entity - didCollide
+- Game - checkCollisions
 
 ## Links
 
