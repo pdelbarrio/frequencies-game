@@ -35,7 +35,7 @@ class Entity {
     const entityTop = this.y;
     const entityBottom = this.y + this.size;
 
-    //Later we will change this behaviour to stop when player hits any side of the canvas
+    //Later we will change this behaviour to stop when player hits ANY SIDE of the canvas
     if (entityBottom >= screenBottom) this.setDirection("up");
     else if (entityTop <= screenTop) this.setDirection("down");
   }
@@ -61,8 +61,11 @@ class Entity {
     const secEntityTop = secentity.y;
     const secEntityBottom = secentity.y + secentity.size;
 
-
     //Pensar la logica de colisión entre mainEntity y secEntity
-    const crossLeft = 
+    //LOGICA PROVISIONAL:
+    const crossLeft =
+      secEntityLeft === mainEntityRight && secEntityLeft === mainEntityLeft;
+    const crossRight =
+      secEntityRight === mainEntityLeft && secEntityRight === mainEntityRight;
   }
 }

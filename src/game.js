@@ -26,6 +26,7 @@ class Game {
     //inicialmente la mainentity será new Entity, cuando funcione correctamente haremos mainentity = new MainEntity
     this.mainentity = new Entity(this.canvas, 20);
     //Idealmente la SecEntity inicial debería aparecer en algun punto aleatorio del canvas
+
     //Primero probaremos creando una secentity de la Entity
     //this.secentity = new Entity(this.canvas, "posicion diferente de mainentity")
     //Cuando confirmemos que colisiona crearemos SecEntity en posición random

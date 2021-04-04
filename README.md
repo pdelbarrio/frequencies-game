@@ -4,6 +4,8 @@
 
 Juego basado en la película Frequencies, ambientada en un mundo donde las personas se rigen por frecuencias. Si una persona tiene la frecuencia muy alta tiene buena suerte pero no tiene emociones, si tiene la frecuencia baja es torpe pero tiene emociones. El jugador/personaje empieza con 0 unidades de frecuencia e inicia el juego donde hay otros elementos moviéndose aleatoriamente por el canvas con diferentes niveles de frecuencia. Su misión es ir colisionando con el resto de elementos para ir nivelando las frecuencias en una cuenta atrás. Si logra el equilibrio entre todos los elementos sube de nivel y se encuentra con otra pantalla con más personajes con los que nivelar la frecuencia. Si acaba el tiempo y no logra el equilibrio de frecuencias pierde una vida, tiene tres vidas.
 
+En este juego eres una entidad encargada de equilibrar las frecuencias con otras entidades que tienen diferentes frecuencias. Si consigues el equilibrio pasas de pantalla.
+
 ## MVP (DOM - CANVAS)
 
 El jugador debe moverse e interactuar con otro elemento que se mueve aleatoriamente por el canvas para lograr equilibrar su nivel de frecuencia. El jugador tiene 0 nivel de frecuencia y el otro elemento tiene 10, cuando colisionen ambos deben ponerse a 5. En este MVP hay una cuenta atrás de 10 segundos. Si consigue equilibrarse gana, si pasa el tiempo sin equilibrarse pierde.
@@ -121,11 +123,11 @@ Definition of the different states and their transition (transition functions)
 - Main - createGameScreen
 - Main - startGame
 - Game - start
-- Player - setDirection
-- Player - updatePosition
-- Player - handleScreenCollision
-- Player - removeLife
-- Player - draw
+- Entity - setDirection
+- Entity - updatePosition
+- Entity - handleScreenCollision
+- Entity - removeLife
+- Entity - draw
 - Game - handleKeyDown
 - Game - startLoop
 
