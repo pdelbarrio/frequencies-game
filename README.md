@@ -27,9 +27,13 @@ The player has to interact with another element that move randomly around the ca
 
 3.  game.js
 
-4.  player.js
+4.  entity.js
 
-5.  timer.js
+5.  mainentity.js
+
+6.  secentity.js
+
+7.  timer.js
 
     ### 1. index.html
 
@@ -70,10 +74,13 @@ The player has to interact with another element that move randomly around the ca
             Selects the lives and score elements from the gameScreen.
             Generates canvas container and dimensions.
             Generates a Player instance.
+            In the handleKeyDown function we have an addEventListener to setDirection when a key is pressed.
 
-    ### 4. player.js
+        startLoop: includes the following commands:
 
-    1.  Includes 1 Player class with the lives, the size, the initial position, the direction and the speed properties.
+    ### 4. entity.js
+
+    1.  Includes Entity class with the size, the initial position, the direction and the speed properties.
 
     Includes X methods:
 
@@ -82,6 +89,14 @@ The player has to interact with another element that move randomly around the ca
         handleScreenCollision
         removeLive
         draw
+
+    ### 5. mainentity.js
+
+    1. MainEntity extends Entity class plus lives property
+
+    ### 6. secentity.js
+
+    1. SecEntity extends Entity class
 
 ###
 
@@ -105,14 +120,14 @@ Definition of the different states and their transition (transition functions)
 - Main - removeSplashScreen
 - Main - createGameScreen
 - Main - startGame
-
 - Game - start
-- Game - clearCanvas
-- Game - updateCanvas
-- Game - drawCanvas
-- Game - setGameOver
-- Game - collision
-- Game - addEventListener
+- Player - setDirection
+- Player - updatePosition
+- Player - handleScreenCollision
+- Player - removeLife
+- Player - draw
+- Game - handleKeyDown
+- Game - startLoop
 
 ## Links
 
