@@ -80,12 +80,9 @@ function startGame() {
 }
 
 function endGame(score) {}
-window.addEventListener("load", createSplashScreen);
 
 //Info Screen
 function createInfoScreen() {}
 function removeInfoScreen() {}
 
-window.addEventListener("load", () => {
-  let game = new Game();
-});
+window.addEventListener("load", createSplashScreen);
