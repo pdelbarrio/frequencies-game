@@ -31,9 +31,9 @@ The player has to interact with another element that move randomly around the ca
 
 4.  entity.js
 
-5.  mainentity.js
+5.  player.js
 
-6.  secentity.js
+6.  npc.js
 
 7.  timer.js
 
@@ -93,13 +93,13 @@ The player has to interact with another element that move randomly around the ca
         draw
         didcollide
 
-    ### 5. mainentity.js
+    ### 5. player.js
 
-    1. MainEntity extends Entity class plus lives property
+    1. Player extends Entity class plus lives property
 
-    ### 6. secentity.js
+    ### 6. npc.js
 
-    1. SecEntity extends Entity class
+    1. NPC extends Entity class
 
 ###
 

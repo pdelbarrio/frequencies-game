@@ -25,18 +25,20 @@ class Game {
     this.canvas.setAttribute("height", this.containerHeight);
 
     //inicialmente la mainentity será new Entity, cuando funcione correctamente haremos
-    this.player = new Entity(this.canvas, 5, "red"); //this.player = new Player
+    this.player = new Player(this.canvas, 5, "red", 3);
 
     //Idealmente la SecEntity inicial debería aparecer en algun punto aleatorio del canvas
-    this.npc = new Entity(this.canvas, 20, "blue"); //this.player = new Npc
+    this.npc = new Npc(this.canvas, 20, "blue");
 
     function handleKeyDown(event) {
       if (event.key === "ArrowUp") {
-        this.npc.setDirection("up"); //this.npc will move randomly in the canvas
-        this.player.setDirection("up");
+        this.player.direction = "up";
       } else if (event.key === "ArrowDown") {
-        this.npc.setDirection("down"); //this.npc will move randomly in the canvas
-        this.player.setDirection("down");
+        this.player.direction = "down";
+      } else if (event.key === "ArrowLeft") {
+        this.player.direction = "left";
+      } else if (event.key === "ArrowRight") {
+        this.player.direction = "right";
       }
     }
     const boundHandleKeyDown = handleKeyDown.bind(this);
@@ -55,6 +57,7 @@ class Game {
       // -- 1.3 Actualizar la posición del jugador y del/los NPC
       this.player.updatePosition();
       this.npc.updatePosition();
+      //this.npc.updatePosition(); //como hacer update si de momento está quieto
 
       this.player.handleScreenCollision();
       this.npc.handleScreenCollision();

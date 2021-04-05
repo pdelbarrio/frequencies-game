@@ -1,16 +1,29 @@
 class Npc extends Entity {
   //Idealmente pasaremos positionX y positionY
   //primero fijas y despues aleatorias
-  constructor(canvas, positionX, positionY, speed) {
-    this.canvas = canvas;
-    this.ctx = this.canvas.getContext("2d");
+  constructor(canvas, speed, color) {
+    super(canvas, speed, color);
 
-    this.x = positionX;
-    this.y = positionY;
+    this.color = color;
+
+    this.direction = 0;
+
+    this.x = 70;
+    this.y = 20;
+
+    // this.dx = 1 * this.speed;
+    // this.dy = 1 * this.speed;
 
     this.speed = speed;
 
     this.hasBeenBalanced = false;
   }
-  randomMovement();
+
+  update() {
+    this.draw(context);
+    this.x += this.dx;
+    this.y += this.dy;
+  }
+
+  updatePosition() {}
 }
