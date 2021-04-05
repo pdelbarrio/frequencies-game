@@ -13,8 +13,8 @@ class Entity {
 
   handleScreenCollision() {
     //crear para ScreenLeft y ScreenRight
-    const screenLeft;
-    const screenRight;
+    const screenLeft = 0;
+    const screenRight = this.canvas.width;
 
     const screenTop = 0;
     const screenBottom = this.canvas.height;
@@ -22,16 +22,22 @@ class Entity {
     const entityTop = this.y;
     const entityBottom = this.y + this.size;
 
-    const entityRight;
-    const entityLeft;
+    const entityLeft = this.x;
+    const entityRight = this.x + this.size;
 
     //Later we will change this behaviour TO STOP when player hits ANY SIDE of the canvas
     // if (entityBottom >= screenBottom) this.setDirection("up");
     // else if (entityTop <= screenTop) this.setDirection("down");
+    if (entityRight >= screenRight) {
+      this.direction = "stop";
+      this.x--;
+    } else if (entityLeft <= screenLeft) {
+      this.direction = "stop";
+      this.x++;
+    }
 
     if (entityBottom >= screenBottom) {
       this.direction = "stop";
-
       this.y--; //Subimos un pixel para que no se quede en "stop" al tocar bottom
     } else if (entityTop <= screenTop) {
       this.direction = "stop";
