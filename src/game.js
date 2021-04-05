@@ -49,7 +49,7 @@ class Game {
   startLoop() {
     const loop = () => {
       //1. ACTUALIZAR los estados del jugador y las otras entidades
-      // -- 1.0 Nuestro Player ya está creada en la función start
+      // -- 1.0 Nuestro Player ya está creado en la función start
       // -- 1.1 Crear los otros NPC en posiciones aleatorias
       // -- 1.2 Comprobar si el Player ha colisionado con algun NPC
       this.checkCollisions();
@@ -57,11 +57,12 @@ class Game {
       // -- 1.3 Actualizar la posición del jugador y del/los NPC
       this.player.updatePosition();
       this.npc.updatePosition();
+
       //this.npc.updatePosition(); //como hacer update si de momento está quieto
 
       this.player.handleScreenCollision();
       this.npc.handleScreenCollision();
-      // -- 1.4 Mover las secEntity (teoricamente no hace falta
+      // -- 1.4 Mover las NPC (teoricamente no hace falta
       //-- comprobar si están fuera de la pantalla ya que son objetos de la clase
       //-- SecEntity hija de clase Entity donde definiré en handleScreenCollision() que no
       // -- puedan salir del canvas)
@@ -81,7 +82,9 @@ class Game {
   }
   checkCollisions() {
     if (this.player.didCollide(this.npc)) {
-      console.log("Main Entity and Second Entity balance their frequencies");
+      console.log("Player and NPC collide and balance their frequencies");
+      this.player.direction = "stop";
+      this.npc.speed = 0;
     }
   }
   gameOver() {}

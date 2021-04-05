@@ -34,22 +34,29 @@ class Player extends Entity {
   balance() {}
 
   didCollide(npc) {
+    //seleccionamos los 4 laterales del Player
     const playerLeft = this.x;
     const playerRight = this.x + this.size;
     const playerTop = this.y;
     const playerBottom = this.y + this.size;
 
+    //seleccionamos los 4 laterales del NPC
     const npcLeft = npc.x;
     const npcRight = npc.x + npc.size;
     const npcTop = npc.y;
     const npcBottom = npc.y + npc.size;
 
-    //Pensar la logica de colisión entre mainEntity y secEntity
+    //Pensar la logica de colisión entre Player y NPC
     //LOGICA PROVISIONAL:
-    const crossLeft = npcLeft === playerRight && npcLeft === playerLeft;
-    const crossRight = npcRight === playerLeft && npcRight === playerRight;
-    const crossBottom = npcBottom === playerTop && npcBottom === playerBottom;
-    const crossTop = npcTop === playerBottom && npcTop === playerTop;
+    // const crossLeft = npcLeft === playerRight && npcLeft === playerLeft;
+    // const crossRight = npcRight === playerLeft && npcRight === playerRight;
+    // const crossBottom = npcBottom === playerTop && npcBottom === playerBottom;
+    // const crossTop = npcTop === playerBottom && npcTop === playerTop;
+
+    const crossLeft = npcLeft <= playerRight && npcLeft >= playerLeft;
+    const crossRight = npcRight >= playerLeft && npcRight <= playerRight;
+    const crossBottom = npcBottom >= playerTop && npcBottom <= playerBottom;
+    const crossTop = npcTop <= playerBottom && npcTop >= playerTop;
 
     if ((crossLeft || crossRight) && (crossTop || crossBottom)) {
       return true;

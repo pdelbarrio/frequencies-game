@@ -124,15 +124,15 @@ Definition of the different states and their transition (transition functions)
 - Main - createGameScreen
 - Main - startGame
 - Game - start
+- Game - startLoop
 - Entity - setDirection
-- Entity - updatePosition
+- Player - updatePosition
 - Entity - handleScreenCollision
-- Entity - removeLife
 - Entity - draw
 - Game - handleKeyDown
-- Game - startLoop
-- Entity - didCollide
 - Game - checkCollisions
+- Entity - didCollide
+- Entity - removeLife
 
 ## Links
 
