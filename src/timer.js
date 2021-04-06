@@ -1,25 +1,30 @@
 class Timer {
   constructor() {
-    this.currentTime = 20;
+    this.currentTime = 100;
     this.intervalId = 0;
   }
 
   startCount(callback) {
     this.intervalId = setInterval(() => {
       this.currentTime--;
+      callback();
     }, 1000);
   }
 
   getMinutes() {
-    return Math.floor(this.currentTime / 60);
+    let minutes = 0;
+    minutes = this.currentTime / 60;
+    return Math.floor(minutes);
   }
 
   getSeconds() {
-    return this.currentTime % 60;
+    let seconds = 0;
+    seconds = this.currentTime % 60;
+    return seconds;
   }
 
-  twoDigitsNumber(number) {
-    return ("0" + number).slice(-2);
+  twoDigitsNumber(num) {
+    return ("0" + num).slice(-2);
   }
 
   stopCount() {
@@ -32,10 +37,11 @@ class Timer {
     this.currentTime = 0;
   }
 
-  splitCount() {
-    return `${this.twoDigitsNumber(this.getMinutes())}:${this.twoDigitsNumber(
-      this.getSeconds()
-    )}`;
+  splitCount(minutes, seconds) {
+    minutes = this.twoDigitsNumber(this.getMinutes());
+    seconds = this.twoDigitsNumber(this.getSeconds());
+
+    return `${minutes}:${seconds}`;
   }
 }
 

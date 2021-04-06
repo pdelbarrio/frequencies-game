@@ -7,6 +7,21 @@ let gameScreen;
 let gameOverScreen;
 let infoScreen;
 
+// get the DOM elements that will serve us to display the time:
+let minDec = document.getElementById("minDec");
+let minUni = document.getElementById("minUni");
+let secDec = document.getElementById("secDec");
+let secUni = document.getElementById("secUni");
+
+function printTime() {
+  printMinutes();
+  printSeconds();
+}
+function printMinutes() {
+  let minutes = timer.twoDigitsNumber(chronometer.getMinutes());
+  minUni.innerHTML = minutes[1];
+  minDec.innerHTML = minutes[0];
+}
 //Create DOM elements from a string representation
 function builDom(htmlString) {
   const tempDiv = document.createElement("div");
@@ -41,9 +56,15 @@ function createGameScreen() {
   <main class="game container">
       <header>
           <div class="timer">
-            <span class="countdown-timer">0</span>
+            <span class="countdown-timer">
+            <span id="minDec" class="number">0</span>
+            <span id="minUni" class="number">0</span>
+            <span>:</span>
+            <span id="secDec" class="number">0</span>
+            <span id="secUni" class="number">0</span>
+            </span>
           </div>
-          
+
           <div class="lives">
               <span class="label">Lives:</span>
               <span class="value"></span>

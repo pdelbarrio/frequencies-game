@@ -9,6 +9,7 @@ class Game {
     this.score = 0;
     this.livesElement = undefined;
     this.scoreElement = undefined;
+    this.timer = null;
   }
 
   start() {
@@ -90,6 +91,18 @@ class Game {
       console.log(this.npc.hasBeenBalanced);
     }
   }
+
+  updateTimer() {
+    this.timerElement = document.querySelector(".countdown-timer");
+    this.timerElement.textContent = this.timer.splitCount();
+    if (this.timer.currentTime < 10) {
+      this.timerElement.style.color = "red";
+    }
+    if (this.timer.currentTime <= 0) {
+      this.gameOver();
+    }
+  }
+
   gameOver() {}
   updateGameStats() {}
 }
