@@ -81,6 +81,7 @@ class Game {
         window.requestAnimationFrame(loop);
       }
       //5. ACTUALIZAR PUNTUACIÓN Y VIDAS QUE MOSTRAMOS POR PANTALLA (HTML)
+      this.updateGameStats();
     };
     window.requestAnimationFrame(loop);
   }
@@ -93,6 +94,7 @@ class Game {
       //Probando lógica del método balance() del Player.
       //Debería ejecutar el método balance() y seguir el movimiento hasta otro NPC
       this.player.balance(this.npc);
+      this.npc.color = "red";
       console.log(this.npc.hasBeenBalanced);
       //PRIMERA VERSIÓN MVP -> Cuando colisionan PLAYER y NPC - Se llama a winScreen en Main
       this.gameIsOver = true;
@@ -106,9 +108,20 @@ class Game {
       this.timerClock.style.color = "red";
     }
     if (this.timer.currentTime <= 0) {
-      this.gameIsOver = true;
-      this.gameOver("lose");
-      this.timer.resetCount();
+      this.player.lives -= 1;
+      console.log(this.player.lives);
+      this.timerClock.style.color = "black";
+      this.timer.currentTime = 5;
+      this.player.x = 50;
+      this.player.y = this.canvas.height / 2 - this.player.size / 2;
+      this.npc.x = (this.canvas.width - this.npc.size) * Math.random();
+      this.npc.y = (this.canvas.width - this.npc.size) * Math.random();
+
+      if (this.player.lives <= 0) {
+        this.gameIsOver = true;
+        this.gameOver("lose");
+        this.timer.resetCount();
+      }
     }
   }
 
@@ -116,5 +129,7 @@ class Game {
     //Calls the createGameOverScreen in main
     endGame(status);
   }
-  updateGameStats() {}
+  updateGameStats() {
+    this.livesElement.innerHTML = this.player.lives;
+  }
 }

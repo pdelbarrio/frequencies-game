@@ -6,7 +6,7 @@ class Player extends Entity {
 
     this.direction = 0;
 
-    this.lives = lives;
+    this.lives = 3;
 
     this.x = 50;
     this.y = this.canvas.height / 2 - this.size / 2;

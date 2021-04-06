@@ -38,12 +38,6 @@ function removeSplashScreen() {
 
 //Game screen
 function createGameScreen() {
-  if (gameOverScreen) {
-    removeGameOverScreen();
-  }
-  if (winScreen) {
-    removeWinnerScreen();
-  }
   gameScreen = builDom(`
   <main class="game container">
       <header>
@@ -70,16 +64,12 @@ function createGameScreen() {
   `);
 
   document.body.appendChild(gameScreen);
-  return gameScreen;
 }
 function removeGameScreen() {
   gameScreen.remove();
 }
 //You win Screen
 function createWinnerScreen() {
-  if (gameScreen) {
-    removeGameScreen();
-  }
   winScreen = builDom(`
   <main>
     <h1>YOU WIN!</h1>
@@ -91,8 +81,6 @@ function createWinnerScreen() {
   const startButton = winScreen.querySelector("button");
 
   startButton.addEventListener("click", startGame);
-
-  return winScreen;
 }
 function removeWinnerScreen() {
   winScreen.remove();
@@ -100,10 +88,6 @@ function removeWinnerScreen() {
 
 //Game over screen
 function createGameOverScreen() {
-  if (gameScreen) {
-    removeGameScreen();
-  }
-
   gameOverScreen = builDom(`
   <main>
     <h1>GAME OVER</h1>
@@ -115,8 +99,6 @@ function createGameOverScreen() {
   const startButton = gameOverScreen.querySelector("button");
 
   startButton.addEventListener("click", startGame);
-
-  return gameOverScreen;
 }
 
 function removeGameOverScreen() {
@@ -128,6 +110,9 @@ function startGame() {
   if (gameOverScreen) {
     removeGameOverScreen();
   }
+  if (winScreen) {
+    removeWinnerScreen();
+  }
   removeSplashScreen();
   createGameScreen();
 
@@ -137,11 +122,10 @@ function startGame() {
 }
 
 function endGame(status) {
+  removeGameScreen();
   if (status === "lose") {
-    removeGameScreen();
     createGameOverScreen();
   } else if (status === "win") {
-    removeGameScreen();
     createWinnerScreen();
   }
 }
