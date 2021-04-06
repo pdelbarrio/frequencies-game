@@ -2,9 +2,9 @@
 
 ## Description
 
-Juego basado en la película Frequencies, ambientada en un mundo donde las personas se rigen por frecuencias. Si una persona tiene la frecuencia muy alta tiene buena suerte pero no tiene emociones, si tiene la frecuencia baja es torpe pero tiene emociones. El jugador/personaje empieza con 0 unidades de frecuencia e inicia el juego donde hay otros elementos moviéndose aleatoriamente por el canvas con diferentes niveles de frecuencia. Su misión es ir colisionando con el resto de elementos para ir nivelando las frecuencias en una cuenta atrás. Si logra el equilibrio entre todos los elementos sube de nivel y se encuentra con otra pantalla con más personajes con los que nivelar la frecuencia. Si acaba el tiempo y no logra el equilibrio de frecuencias pierde una vida, tiene tres vidas.
+En este juego eres una entidad encargada de equilibrar las frecuencias con otras entidades mediante contacto que tienen diferentes frecuencias. Si consigues el equilibrio dentro de un determiado tiempo pasas de pantalla.
 
-En este juego eres una entidad encargada de equilibrar las frecuencias con otras entidades que tienen diferentes frecuencias. Si consigues el equilibrio pasas de pantalla.
+Add english description
 
 ## MVP (DOM - CANVAS)
 
@@ -14,7 +14,7 @@ The player has to interact with another element that move randomly around the ca
 
 ## Backlog
 
-- Add more players and time
+- Add more npcs
 - Add score
 - Add lives
 - Once logic is completed, create graphical interface
@@ -101,6 +101,18 @@ The player has to interact with another element that move randomly around the ca
 
     1. NPC extends Entity class
 
+    ### 7. timer.js
+
+    1. Creates an instance of Timer Class.
+
+    2. Timer is a decreasing counter in a 1 second interval.
+
+    3. Has methods to return minutes and seconds in 2 digit format values according to counter value.
+
+    4. Returns both values so they can be printed into the DOM.
+
+    5. When reaches 0, turns the gameOver flag into true, calls endGame and createEndGame methods.
+
 ###
 
 ​
@@ -131,6 +143,7 @@ Definition of the different states and their transition (transition functions)
 - Entity - draw
 - Game - handleKeyDown
 - Game - checkCollisions
+- Npc - updatePosition
 - Entity - didCollide
 - Entity - removeLife
 

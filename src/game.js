@@ -28,7 +28,8 @@ class Game {
     this.player = new Player(this.canvas, 5, "red", 3);
 
     //Idealmente la SecEntity inicial debería aparecer en algun punto aleatorio del canvas
-    this.npc = new Npc(this.canvas, 20, "blue");
+    this.npc = new Npc(this.canvas, 3, "blue");
+    // this.npc = new Npc(this.canvas, 20, "orange");
 
     function handleKeyDown(event) {
       if (event.key === "ArrowUp") {
@@ -61,11 +62,8 @@ class Game {
       //this.npc.updatePosition(); //como hacer update si de momento está quieto
 
       this.player.handleScreenCollision();
-      this.npc.handleScreenCollision();
-      // -- 1.4 Mover las NPC (teoricamente no hace falta
-      //-- comprobar si están fuera de la pantalla ya que son objetos de la clase
-      //-- SecEntity hija de clase Entity donde definiré en handleScreenCollision() que no
-      // -- puedan salir del canvas)
+
+      // -- 1.4 Mover las NPC
       //
       //2. LIMPIAR CANVAS
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -82,9 +80,14 @@ class Game {
   }
   checkCollisions() {
     if (this.player.didCollide(this.npc)) {
-      console.log("Player and NPC collide and balance their frequencies");
-      this.player.direction = "stop";
+      // console.log("Player and NPC collide and balance their frequencies");
+
+      //this.player.direction = "stop";
       this.npc.speed = 0;
+      //Probando lógica del método balance() del Player.
+      //Debería ejecutar el método balance() y seguir el movimiento hasta otro NPC
+      this.player.balance(this.npc);
+      console.log(this.npc.hasBeenBalanced);
     }
   }
   gameOver() {}

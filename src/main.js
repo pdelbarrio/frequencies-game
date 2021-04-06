@@ -40,6 +40,10 @@ function createGameScreen() {
   gameScreen = builDom(`
   <main class="game container">
       <header>
+          <div class="timer">
+            <span class="countdown-timer">0</span>
+          </div>
+          
           <div class="lives">
               <span class="label">Lives:</span>
               <span class="value"></span>

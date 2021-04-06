@@ -31,7 +31,9 @@ class Player extends Entity {
     }
   }
 
-  balance() {}
+  balance(npc) {
+    npc.hasBeenBalanced = true;
+  }
 
   didCollide(npc) {
     //seleccionamos los 4 laterales del Player
