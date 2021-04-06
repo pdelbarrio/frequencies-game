@@ -1,11 +1,12 @@
 class Game {
-  constructor(gameScreen) {
+  constructor(gameScreen, gameOverScreen) {
     this.canvas = null;
     this.ctx = null;
     this.player = null; //PLAYER
     this.npc = null; //NPC
     this.gameIsOver = false;
     this.gameScreen = gameScreen;
+    this.gameOverScreen = gameOverScreen;
     this.score = 0;
     this.livesElement = undefined;
     this.scoreElement = undefined;
@@ -25,12 +26,15 @@ class Game {
     this.canvas.setAttribute("width", this.containerWidth);
     this.canvas.setAttribute("height", this.containerHeight);
 
-    //inicialmente la mainentity será new Entity, cuando funcione correctamente haremos
+    //Create the timer and start de countdown
+    this.timer = new Timer();
+    this.timer.startCount();
+    this.timerClock = document.querySelector(".countdown-timer");
+
     this.player = new Player(this.canvas, 5, "red", 3);
 
-    //Idealmente la SecEntity inicial debería aparecer en algun punto aleatorio del canvas
     this.npc = new Npc(this.canvas, 3, "blue");
-    // this.npc = new Npc(this.canvas, 20, "orange");
+    //Probar con más NPCs
 
     function handleKeyDown(event) {
       if (event.key === "ArrowUp") {
@@ -54,6 +58,7 @@ class Game {
       // -- 1.0 Nuestro Player ya está creado en la función start
       // -- 1.1 Crear los otros NPC en posiciones aleatorias
       // -- 1.2 Comprobar si el Player ha colisionado con algun NPC
+      this.updateTimer();
       this.checkCollisions();
 
       // -- 1.3 Actualizar la posición del jugador y del/los NPC
@@ -89,20 +94,27 @@ class Game {
       //Debería ejecutar el método balance() y seguir el movimiento hasta otro NPC
       this.player.balance(this.npc);
       console.log(this.npc.hasBeenBalanced);
+      //PRIMERA VERSIÓN MVP -> Cuando colisionan PLAYER y NPC - Se llama a winScreen en Main
+      this.gameIsOver = true;
+      this.gameOver("win");
     }
   }
 
   updateTimer() {
-    this.timerElement = document.querySelector(".countdown-timer");
-    this.timerElement.textContent = this.timer.splitCount();
-    if (this.timer.currentTime < 10) {
-      this.timerElement.style.color = "red";
+    this.timerClock.textContent = this.timer.splitCount();
+    if (this.timer.currentTime < 5) {
+      this.timerClock.style.color = "red";
     }
     if (this.timer.currentTime <= 0) {
-      this.gameOver();
+      this.gameIsOver = true;
+      this.gameOver("lose");
+      this.timer.resetCount();
     }
   }
 
-  gameOver() {}
+  gameOver(status) {
+    //Calls the createGameOverScreen in main
+    endGame(status);
+  }
   updateGameStats() {}
 }

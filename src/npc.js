@@ -6,8 +6,8 @@ class Npc extends Entity {
 
     this.direction = 0;
 
-    this.x = this.canvas.width / (Math.floor(Math.random() * 10) + 1);
-    this.y = this.canvas.height / (Math.floor(Math.random() * 10) + 1);
+    this.x = (this.canvas.width - this.size) * Math.random();
+    this.y = (this.canvas.height - this.size) * Math.random();
 
     this.speed = speed;
 

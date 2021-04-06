@@ -5,23 +5,9 @@ let game;
 let splashScreen;
 let gameScreen;
 let gameOverScreen;
+let winScreen;
 let infoScreen;
 
-// get the DOM elements that will serve us to display the time:
-let minDec = document.getElementById("minDec");
-let minUni = document.getElementById("minUni");
-let secDec = document.getElementById("secDec");
-let secUni = document.getElementById("secUni");
-
-function printTime() {
-  printMinutes();
-  printSeconds();
-}
-function printMinutes() {
-  let minutes = timer.twoDigitsNumber(chronometer.getMinutes());
-  minUni.innerHTML = minutes[1];
-  minDec.innerHTML = minutes[0];
-}
 //Create DOM elements from a string representation
 function builDom(htmlString) {
   const tempDiv = document.createElement("div");
@@ -52,16 +38,17 @@ function removeSplashScreen() {
 
 //Game screen
 function createGameScreen() {
+  if (gameOverScreen) {
+    removeGameOverScreen();
+  }
+  if (winScreen) {
+    removeWinnerScreen();
+  }
   gameScreen = builDom(`
   <main class="game container">
       <header>
           <div class="timer">
             <span class="countdown-timer">
-            <span id="minDec" class="number">0</span>
-            <span id="minUni" class="number">0</span>
-            <span>:</span>
-            <span id="secDec" class="number">0</span>
-            <span id="secUni" class="number">0</span>
             </span>
           </div>
 
@@ -88,23 +75,76 @@ function createGameScreen() {
 function removeGameScreen() {
   gameScreen.remove();
 }
+//You win Screen
+function createWinnerScreen() {
+  if (gameScreen) {
+    removeGameScreen();
+  }
+  winScreen = builDom(`
+  <main>
+    <h1>YOU WIN!</h1>
+    <button>Start Again</button>
+  </main>
+  `);
+
+  document.body.appendChild(winScreen);
+  const startButton = winScreen.querySelector("button");
+
+  startButton.addEventListener("click", startGame);
+
+  return winScreen;
+}
+function removeWinnerScreen() {
+  winScreen.remove();
+}
 
 //Game over screen
-function createGameOverScreen() {}
+function createGameOverScreen() {
+  if (gameScreen) {
+    removeGameScreen();
+  }
 
-function removeGameOverScreen() {}
+  gameOverScreen = builDom(`
+  <main>
+    <h1>GAME OVER</h1>
+    <button>Start Again</button>
+  </main>
+  `);
+
+  document.body.appendChild(gameOverScreen);
+  const startButton = gameOverScreen.querySelector("button");
+
+  startButton.addEventListener("click", startGame);
+
+  return gameOverScreen;
+}
+
+function removeGameOverScreen() {
+  gameOverScreen.remove();
+}
 
 //Setting the game state - start or game over
 function startGame() {
+  if (gameOverScreen) {
+    removeGameOverScreen();
+  }
   removeSplashScreen();
   createGameScreen();
 
-  game = new Game(gameScreen);
+  game = new Game(gameScreen, gameOverScreen);
 
   game.start();
 }
 
-function endGame(score) {}
+function endGame(status) {
+  if (status === "lose") {
+    removeGameScreen();
+    createGameOverScreen();
+  } else if (status === "win") {
+    removeGameScreen();
+    createWinnerScreen();
+  }
+}
 
 //Info Screen
 function createInfoScreen() {}

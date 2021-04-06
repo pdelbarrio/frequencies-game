@@ -3,7 +3,7 @@ class Entity {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
 
-    this.size = 100;
+    this.size = 10;
 
     this.speed = speed;
     this.color = color;
