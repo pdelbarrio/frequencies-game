@@ -59,7 +59,9 @@ function createGameScreen() {
 
       <div class="canvas-container">
           <canvas></canvas>
+          
       </div>
+      
   </main>
   `);
 

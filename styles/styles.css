@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Digi";
+  src: url("fonts/ds-digib.ttf");
+}
+
 /* ---- CSS reset ---- */
 
 html {
@@ -10,7 +15,8 @@ html {
 }
 
 body {
-  background-color: bisque;
+  background-color: black;
+  background-image: url("./img/bg-main.webm");
   margin: 0;
   padding: 0;
 }
@@ -18,8 +24,9 @@ body {
 /* ---- typography ---- */
 
 body {
-  color: #111;
-  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  font-family: "Digi";
+  /* font-family: Helvetica, Arial, sans-serif; */
   font-size: 16px;
   line-height: 147%;
 }

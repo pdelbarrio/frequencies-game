@@ -3,7 +3,8 @@ class Game {
     this.canvas = null;
     this.ctx = null;
     this.player = null; //PLAYER
-    this.npc = null; //NPC
+    // this.npc = null; //NPC
+    this.npcs = []; //array de NPC
     this.gameIsOver = false;
     this.gameScreen = gameScreen;
     this.gameOverScreen = gameOverScreen;
@@ -33,8 +34,12 @@ class Game {
 
     this.player = new Player(this.canvas, 5, "red", 3);
 
-    this.npc = new Npc(this.canvas, 3, "blue");
-    //Probar con más NPCs
+    // this.npc = new Npc(this.canvas, 3, "blue");
+    //Probar con más NPCs, de momento solo con 5
+    for (let i = 0; i < 5; i++) {
+      const newNpc = new Npc(this.canvas, 3, "blue");
+      this.npcs.push(newNpc);
+    }
 
     function handleKeyDown(event) {
       if (event.key === "ArrowUp") {
@@ -56,16 +61,19 @@ class Game {
     const loop = () => {
       //1. ACTUALIZAR los estados del jugador y las otras entidades
       // -- 1.0 Nuestro Player ya está creado en la función start
-      // -- 1.1 Crear los otros NPC en posiciones aleatorias
+      // -- 1.1 Crear los otros NPC en posiciones aleatorias, se crean en start par que no haya loop de creacion de npcs
+
       // -- 1.2 Comprobar si el Player ha colisionado con algun NPC
       this.updateTimer();
       this.checkCollisions();
 
       // -- 1.3 Actualizar la posición del jugador y del/los NPC
       this.player.updatePosition();
-      this.npc.updatePosition();
 
-      //this.npc.updatePosition(); //como hacer update si de momento está quieto
+      // this.npc.updatePosition();
+      this.npcs = this.npcs.filter((npc) => {
+        npc.updatePosition();
+      });
 
       this.player.handleScreenCollision();
 
@@ -75,7 +83,12 @@ class Game {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       //3. DIBUJAR DE NUEVO EL CANVAS CON LAS POSICIONES ACTUALIZADAS
       this.player.draw();
-      this.npc.draw();
+
+      // this.npc.draw();
+      this.npcs.forEach((npc) => {
+        npc.draw();
+      });
+
       //4. ROMPER EL LOOP EN CASO DE GAME OVER (LIVES <=0 O TIMER <=0)
       if (!this.gameIsOver) {
         window.requestAnimationFrame(loop);
@@ -86,7 +99,13 @@ class Game {
     window.requestAnimationFrame(loop);
   }
   checkCollisions() {
-    if (this.player.didCollide(this.npc)) {
+    this.npcs.forEach((npc) => {
+      if (this.player.didCollide(npc)) {
+        npc.this.color = "red";
+      }
+    });
+
+    /*if (this.player.didCollide(this.npc)) {
       // console.log("Player and NPC collide and balance their frequencies");
 
       //this.player.direction = "stop";
@@ -99,7 +118,7 @@ class Game {
       //PRIMERA VERSIÓN MVP -> Cuando colisionan PLAYER y NPC - Se llama a winScreen en Main
       this.gameIsOver = true;
       this.gameOver("win");
-    }
+    }*/
   }
 
   updateTimer() {
@@ -109,9 +128,9 @@ class Game {
     }
     if (this.timer.currentTime <= 0) {
       this.player.lives -= 1;
-      console.log(this.player.lives);
+
       this.timerClock.style.color = "black";
-      this.timer.currentTime = 5;
+      this.timer.currentTime = 20;
       this.player.x = 50;
       this.player.y = this.canvas.height / 2 - this.player.size / 2;
       this.npc.x = (this.canvas.width - this.npc.size) * Math.random();
