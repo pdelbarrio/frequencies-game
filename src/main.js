@@ -19,15 +19,19 @@ function builDom(htmlString) {
 //Splash screen
 function createSplashScreen() {
   splashScreen = builDom(`
-  <main>
-    <h1>Frequencies Game</h1>
-    <button>Start</button>
+  
+  <main class="splashScreen">
+      
+      <h2>FREQUENCIES</h2>
+      <div class="text-box">
+        <a id="start-button" href="#" class="">START GAME</a>
+      </div>
   </main>
 
   `);
 
   document.body.appendChild(splashScreen);
-  const startButton = splashScreen.querySelector("button");
+  const startButton = splashScreen.querySelector("#start-button");
 
   startButton.addEventListener("click", startGame);
 }
@@ -61,7 +65,10 @@ function createGameScreen() {
           <canvas></canvas>
           
       </div>
-      
+      <div style="display: none">
+        <audio id="background-music" preload="auto" controls="none"  src="sounds/bg-drone.mp3"></audio>
+        <audio id="colision-sound" preload="auto" controls="none" src="sounds/sound13.wav"></audio>
+      </div>
   </main>
   `);
 
@@ -73,14 +80,18 @@ function removeGameScreen() {
 //You win Screen
 function createWinnerScreen() {
   winScreen = builDom(`
-  <main>
-    <h1>YOU WIN!</h1>
-    <button>Start Again</button>
+  
+  <main class="splashScreen">
+      
+      <h2>YOU WIN</h2>
+      <div class="text-box">
+        <a id="start-button" href="#" class="">START AGAIN</a>
+      </div>
   </main>
   `);
 
   document.body.appendChild(winScreen);
-  const startButton = winScreen.querySelector("button");
+  const startButton = winScreen.querySelector("#start-button");
 
   startButton.addEventListener("click", startGame);
 }
@@ -91,14 +102,18 @@ function removeWinnerScreen() {
 //Game over screen
 function createGameOverScreen() {
   gameOverScreen = builDom(`
-  <main>
-    <h1>GAME OVER</h1>
-    <button>Start Again</button>
+  
+  <main class="splashScreen">
+      
+      <h2>GAME OVER</h2>
+      <div class="text-box">
+        <a id="start-button" href="#" class="">START AGAIN</a>
+      </div>
   </main>
   `);
 
   document.body.appendChild(gameOverScreen);
-  const startButton = gameOverScreen.querySelector("button");
+  const startButton = gameOverScreen.querySelector("#start-button");
 
   startButton.addEventListener("click", startGame);
 }

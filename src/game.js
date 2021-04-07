@@ -11,7 +11,7 @@ class Game {
     this.livesElement = undefined;
     this.scoreElement = undefined;
     this.timer = null;
-
+    this.npcQuantiy = 5;
     this.framesCounter = 0;
   }
 
@@ -34,11 +34,11 @@ class Game {
     this.timerClock = document.querySelector(".countdown-timer");
 
     // this.player = new Player(this.canvas, 6, "red", 3);
-    this.player = new Player(this.canvas, 5, "/img/player.png");
+    this.player = new Player(this.canvas, 5, "/img/player1.png");
 
     //Probar con más NPCs
-    for (let i = 0; i < 3; i++) {
-      const newNpc = new Npc(this.canvas, 2, "blue");
+    for (let i = 0; i < this.npcQuantiy; i++) {
+      const newNpc = new Npc(this.canvas, 20, "/img/npc2.png");
       this.npcs.push(newNpc);
     }
 
@@ -88,7 +88,7 @@ class Game {
 
       // this.npc.draw();
       this.npcs.forEach((npc) => {
-        npc.draw();
+        npc.draw(this.framesCounter);
       });
 
       //4. ROMPER EL LOOP EN CASO DE GAME OVER (LIVES <=0 O TIMER <=0)
@@ -105,8 +105,14 @@ class Game {
     this.npcs.forEach((npc) => {
       if (this.player.didCollide(npc)) {
         npc.color = "red";
-
+        // npc.playerImgSrc = "/img/npc2.png";
+        // npc.image.src = "/img/npc2.png";
+        // npc.image.currentSrc = "/img/npc2.png";
+        document.getElementById("colision-sound").currentTime = 0.5;
+        document.getElementById("colision-sound").play();
         npc.hasBeenBalanced = true;
+        npc.speed = 1;
+        // console.log(this.npcs[0], this.npcs[1], this.npcs[2]);
       }
       if (npc.hasBeenBalanced === false) {
         balance = false;
@@ -149,8 +155,8 @@ class Game {
       //borro el array de NPCs
       this.npcs = [];
       //Vuelvo a crear el array de NPCs
-      for (let i = 0; i < 3; i++) {
-        const newNpc = new Npc(this.canvas, 2, "blue");
+      for (let i = 0; i < this.npcQuantiy; i++) {
+        const newNpc = new Npc(this.canvas, 20, "/img/npc2.png");
         this.npcs.push(newNpc);
       }
 
