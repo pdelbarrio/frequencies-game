@@ -2,9 +2,8 @@ class Game {
   constructor(gameScreen, gameOverScreen) {
     this.canvas = null;
     this.ctx = null;
-    this.player = null; //PLAYER
-    // this.npc = null; //NPC
-    this.npcs = []; //array de NPC
+    this.player = null;
+    this.npcs = [];
     this.gameIsOver = false;
     this.gameScreen = gameScreen;
     this.gameOverScreen = gameOverScreen;
@@ -12,6 +11,8 @@ class Game {
     this.livesElement = undefined;
     this.scoreElement = undefined;
     this.timer = null;
+
+    this.framesCounter = 0;
   }
 
   start() {
@@ -32,10 +33,10 @@ class Game {
     this.timer.startCount();
     this.timerClock = document.querySelector(".countdown-timer");
 
-    this.player = new Player(this.canvas, 6, "red", 3);
+    // this.player = new Player(this.canvas, 6, "red", 3);
+    this.player = new Player(this.canvas, 5, "/img/player.png");
 
-    // this.npc = new Npc(this.canvas, 3, "blue");
-    //Probar con más NPCs, de momento solo con 5
+    //Probar con más NPCs
     for (let i = 0; i < 3; i++) {
       const newNpc = new Npc(this.canvas, 2, "blue");
       this.npcs.push(newNpc);
@@ -59,9 +60,10 @@ class Game {
   }
   startLoop() {
     const loop = () => {
+      this.framesCounter++;
       //1. ACTUALIZAR los estados del jugador y las otras entidades
       // -- 1.0 Nuestro Player ya está creado en la función start
-      // -- 1.1 Crear los otros NPC en posiciones aleatorias, se crean en start par que no haya loop de creacion de npcs
+      // -- 1.1 Crear los otros NPC en posiciones aleatorias, se crean en start para que no haya loop de creacion de npcs
 
       // -- 1.2 Comprobar si el Player ha colisionado con algun NPC
       this.updateTimer();
@@ -82,7 +84,7 @@ class Game {
       //2. LIMPIAR CANVAS
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       //3. DIBUJAR DE NUEVO EL CANVAS CON LAS POSICIONES ACTUALIZADAS
-      this.player.draw();
+      this.player.draw(this.framesCounter);
 
       // this.npc.draw();
       this.npcs.forEach((npc) => {

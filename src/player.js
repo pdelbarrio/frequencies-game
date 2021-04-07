@@ -1,15 +1,23 @@
 class Player extends Entity {
-  constructor(canvas, speed, color, lives) {
-    super(canvas, speed, color);
+  constructor(canvas, speed, playerImgSrc) {
+    super(canvas, speed);
 
-    this.color = color;
+    // this.color = color;
+
+    this.width = 50;
+    this.height = 50;
 
     this.direction = 0;
 
     this.lives = 3;
 
     this.x = 50;
-    this.y = this.canvas.height / 2 - this.size / 2;
+    this.y = this.canvas.height / 2 - this.height / 2;
+
+    this.image = new Image();
+    this.image.src = playerImgSrc;
+    this.frames = 5;
+    this.framesIndex = 0;
   }
 
   updatePosition() {
@@ -70,5 +78,29 @@ class Player extends Entity {
   removeLife() {
     //this method will be in Player Class only
     this.lives -= 1;
+  }
+
+  draw(framesCounter) {
+    //ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+    this.ctx.drawImage(
+      this.image,
+      this.framesIndex * Math.floor(this.image.width / this.frames),
+      0,
+      Math.floor(this.image.width / this.frames),
+      this.image.height,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
+    this.animate(framesCounter);
+  }
+
+  animate(framesCounter) {
+    if (framesCounter % 10 === 0) {
+      this.framesIndex++;
+
+      if (this.framesIndex > 2) this.framesIndex = 0;
+    }
   }
 }

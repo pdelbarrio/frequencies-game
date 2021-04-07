@@ -4,6 +4,8 @@ class Npc extends Entity {
 
     this.color = color;
 
+    this.size = 50;
+
     this.direction = 0;
 
     this.x = (this.canvas.width - this.size) * Math.random();
@@ -44,5 +46,9 @@ class Npc extends Entity {
         break;
     }
     this.counter++;
+  }
+  draw() {
+    this.ctx.fillStyle = this.color;
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 }

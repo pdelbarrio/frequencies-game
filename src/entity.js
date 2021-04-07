@@ -3,8 +3,6 @@ class Entity {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
 
-    this.size = 50;
-
     this.speed = speed;
     this.color = color;
   }
@@ -43,10 +41,5 @@ class Entity {
 
       this.y++; //Bajamos un pixel para que no se quede en "stop" al tocar el top
     }
-  }
-
-  draw() {
-    this.ctx.fillStyle = this.color;
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
