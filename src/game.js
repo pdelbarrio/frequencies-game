@@ -99,33 +99,31 @@ class Game {
     window.requestAnimationFrame(loop);
   }
   checkCollisions() {
+    let balance = true;
     this.npcs.forEach((npc) => {
       if (this.player.didCollide(npc)) {
-        // console.log("Collision");
         npc.color = "red";
-        debugger;
+
         npc.hasBeenBalanced = true;
-        // console.log(npc.hasBeenBalanced);
+      }
+      if (npc.hasBeenBalanced === false) {
+        balance = false;
       }
     });
 
     //Cuando esto funcione ponerlo dentro de un if para gameOver = true
-    this.npcs.every((npc) => {
-      npc.hasBeenBalanced === true;
-    });
+    if (balance) {
+      this.gameIsOver = true;
+      this.gameOver("win");
+    }
 
     //si se ha conseguido cambiar la propiedad de todos, ha ganado
 
-    // this.npcs.count((npc.hasBeenBalanced = true));
-    // var count = this.npcs.filter(function (s) {
-    //   return s.value;
-    // }).length;
-    // if (count === 3) {
-    //   this.gameIsOver = true;
-    //   this.gameOver("win");
+    //
     // }
 
     /*
+    //codigo del GameOver("win") con un solo NPC:
       //this.player.direction = "stop";
       this.npc.speed = 0;
       //Probando lógica del método balance() del Player.
@@ -147,7 +145,7 @@ class Game {
     if (this.timer.currentTime <= 0) {
       this.player.lives -= 1;
 
-      this.timerClock.style.color = "black";
+      this.timerClock.style.color = "white";
       this.timer.currentTime = 20;
       this.player.x = 50;
       this.player.y = this.canvas.height / 2 - this.player.size / 2;
