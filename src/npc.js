@@ -9,9 +9,6 @@ class Npc extends Entity {
     this.x = (this.canvas.width - this.size) * Math.random();
     this.y = (this.canvas.height - this.size) * Math.random();
 
-    this.x = this.canvas.width;
-    this.y = positionY;
-
     this.speed = speed;
 
     this.hasBeenBalanced = false;

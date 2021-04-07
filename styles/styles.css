@@ -16,7 +16,7 @@ html {
 
 body {
   background-color: black;
-  background-image: url("./img/bg-main.webm");
+  /* background-image: url("./img/bg-main.webm"); */
   margin: 0;
   padding: 0;
 }

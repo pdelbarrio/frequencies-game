@@ -32,12 +32,12 @@ class Game {
     this.timer.startCount();
     this.timerClock = document.querySelector(".countdown-timer");
 
-    this.player = new Player(this.canvas, 5, "red", 3);
+    this.player = new Player(this.canvas, 6, "red", 3);
 
     // this.npc = new Npc(this.canvas, 3, "blue");
     //Probar con más NPCs, de momento solo con 5
-    for (let i = 0; i < 5; i++) {
-      const newNpc = new Npc(this.canvas, 3, "blue");
+    for (let i = 0; i < 3; i++) {
+      const newNpc = new Npc(this.canvas, 2, "blue");
       this.npcs.push(newNpc);
     }
 
@@ -71,7 +71,7 @@ class Game {
       this.player.updatePosition();
 
       // this.npc.updatePosition();
-      this.npcs = this.npcs.filter((npc) => {
+      this.npcs.forEach((npc) => {
         npc.updatePosition();
       });
 
@@ -101,13 +101,31 @@ class Game {
   checkCollisions() {
     this.npcs.forEach((npc) => {
       if (this.player.didCollide(npc)) {
-        npc.this.color = "red";
+        // console.log("Collision");
+        npc.color = "red";
+        debugger;
+        npc.hasBeenBalanced = true;
+        // console.log(npc.hasBeenBalanced);
       }
     });
 
-    /*if (this.player.didCollide(this.npc)) {
-      // console.log("Player and NPC collide and balance their frequencies");
+    //Cuando esto funcione ponerlo dentro de un if para gameOver = true
+    this.npcs.every((npc) => {
+      npc.hasBeenBalanced === true;
+    });
 
+    //si se ha conseguido cambiar la propiedad de todos, ha ganado
+
+    // this.npcs.count((npc.hasBeenBalanced = true));
+    // var count = this.npcs.filter(function (s) {
+    //   return s.value;
+    // }).length;
+    // if (count === 3) {
+    //   this.gameIsOver = true;
+    //   this.gameOver("win");
+    // }
+
+    /*
       //this.player.direction = "stop";
       this.npc.speed = 0;
       //Probando lógica del método balance() del Player.
@@ -133,8 +151,16 @@ class Game {
       this.timer.currentTime = 20;
       this.player.x = 50;
       this.player.y = this.canvas.height / 2 - this.player.size / 2;
-      this.npc.x = (this.canvas.width - this.npc.size) * Math.random();
-      this.npc.y = (this.canvas.width - this.npc.size) * Math.random();
+      //borro el array de NPCs
+      this.npcs = [];
+      //Vuelvo a crear el array de NPCs
+      for (let i = 0; i < 3; i++) {
+        const newNpc = new Npc(this.canvas, 2, "blue");
+        this.npcs.push(newNpc);
+      }
+
+      // this.npc.x = (this.canvas.width - this.npc.size) * Math.random();
+      // this.npc.y = (this.canvas.width - this.npc.size) * Math.random();
 
       if (this.player.lives <= 0) {
         this.gameIsOver = true;
