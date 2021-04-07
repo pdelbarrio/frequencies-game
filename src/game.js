@@ -119,11 +119,6 @@ class Game {
       this.gameOver("win");
     }
 
-    //si se ha conseguido cambiar la propiedad de todos, ha ganado
-
-    //
-    // }
-
     /*
     //codigo del GameOver("win") con un solo NPC:
       //this.player.direction = "stop";

@@ -4,7 +4,7 @@ class Player extends Entity {
 
     // this.color = color;
 
-    this.width = 50;
+    this.width = 60;
     this.height = 50;
 
     this.direction = 0;
