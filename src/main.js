@@ -25,7 +25,7 @@ function createSplashScreen() {
       <h2>FREQUENCIES</h2>
       <div class="text-box">
         <a id="start-button" href="#" class="">START GAME</a>
-      </div>
+      </div>      
   </main>
 
   `);
@@ -65,13 +65,13 @@ function createGameScreen() {
           <canvas></canvas>
           
       </div>
-      <div style="display: none">
-        <audio id="background-music" preload="auto" controls="none"  src="sounds/bg-drone.mp3"></audio>
+      <div style="display: none">        
         <audio id="colision-sound" preload="auto" controls="none" src="sounds/sound13.wav"></audio>
         <audio id="win-sound" preload="auto" controls="none" src="sounds/sound01.mp3"></audio>
         <audio id="gameover" preload="auto" controls="none" src="sounds/gameover.mp3"></audio>
         <audio id="lifelost" preload="auto" controls="none" src="sounds/lifelost.mp3"></audio>
-      </div>
+        <audio id="gamestart" preload="auto" controls="none" src="sounds/start.wav"></audio>
+    </div>
   </main>
   `);
 
@@ -94,6 +94,7 @@ function createWinnerScreen() {
         <audio id="background-music" preload="auto" controls="none"  src="sounds/bg-drone.mp3"></audio>
         <audio id="colision-sound" preload="auto" controls="none" src="sounds/sound13.wav"></audio>
         <audio id="win-sound" preload="auto" controls="none" src="sounds/sound01.mp3"></audio>
+        <audio id="gameover" preload="auto" controls="none" src="sounds/gameover.mp3"></audio>
       </div>
   </main>
   `);
@@ -116,6 +117,9 @@ function createGameOverScreen() {
       <h2>GAME OVER</h2>
       <div class="text-box">
         <a id="start-button" href="#" class="">START AGAIN</a>
+      </div>
+      <div style="display: none">        
+        <audio id="gameover" preload="auto" controls="none" src="sounds/gameover1.wav"></audio>
       </div>
   </main>
   `);

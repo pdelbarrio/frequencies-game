@@ -28,6 +28,10 @@ class Game {
     this.canvas.setAttribute("width", this.containerWidth);
     this.canvas.setAttribute("height", this.containerHeight);
 
+    //Start sound
+    document.getElementById("gamestart").currentTime = 0.5;
+    document.getElementById("gamestart").play();
+
     //Create the timer and start de countdown
     this.timer = new Timer();
     this.timer.startCount();
@@ -104,10 +108,8 @@ class Game {
     let balance = true;
     this.npcs.forEach((npc) => {
       if (this.player.didCollide(npc)) {
-        npc.color = "red";
-        // npc.playerImgSrc = "/img/npc2.png";
-        // npc.image.src = "/img/npc2.png";
-        // npc.image.currentSrc = "/img/npc2.png";
+        npc.image.src = "/img/player1.png";
+
         document.getElementById("colision-sound").currentTime = 0.5;
         document.getElementById("colision-sound").play();
         npc.hasBeenBalanced = true;
