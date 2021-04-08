@@ -155,7 +155,7 @@ Definition of the different states and their transition (transition functions)
 
 ### Git
 
-URls for the project repo and deploy [Link Repo](https://github.com/pdelbarrio/frequencies-game) [Link Deploy](http://github.com/)
+URls for the project repo and deploy [Link Repo](https://github.com/pdelbarrio/frequencies-game) [Link Deploy](https://pdelbarrio.github.io/frequencies-game/)
 
 ### Slides
 
