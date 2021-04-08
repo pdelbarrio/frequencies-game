@@ -2,8 +2,6 @@ class Player extends Entity {
   constructor(canvas, speed, playerImgSrc) {
     super(canvas, speed);
 
-    // this.color = color;
-
     this.width = 100;
     this.height = 120;
 
@@ -88,12 +86,7 @@ class Player extends Entity {
     const npcTop = npc.y;
     const npcBottom = npc.y + npc.size;
 
-    //Pensar la logica de colisión entre Player y NPC
-    //LOGICA PROVISIONAL:
-    // const crossLeft = npcLeft === playerRight && npcLeft === playerLeft;
-    // const crossRight = npcRight === playerLeft && npcRight === playerRight;
-    // const crossBottom = npcBottom === playerTop && npcBottom === playerBottom;
-    // const crossTop = npcTop === playerBottom && npcTop === playerTop;
+    
 
     const crossLeft = npcLeft <= playerRight && npcLeft >= playerLeft;
     const crossRight = npcRight >= playerLeft && npcRight <= playerRight;

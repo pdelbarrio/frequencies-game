@@ -1,11 +1,7 @@
 class Npc extends Entity {
   constructor(canvas, speed, playerImgSrc) {
     super(canvas, speed);
-
-    // this.color = color;
-
-    // this.size = 50;
-
+    
     this.width = 100;
     this.height = 120;
 
