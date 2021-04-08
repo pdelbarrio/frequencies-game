@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: "Digi";
   src: url("../fonts/ds-digib.ttf");
-}
+} */
 
 /* ---- CSS reset ---- */
 #bgvid {
@@ -41,7 +41,8 @@ body {
 
 body {
   color: white;
-  font-family: "Digi";
+  font-family: "Maven Pro", sans-serif;
+  /* font-family: "Digi"; */
   /* font-family: Helvetica, Arial, sans-serif; */
   font-size: 16px;
   line-height: 147%;
