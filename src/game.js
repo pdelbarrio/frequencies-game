@@ -123,6 +123,8 @@ class Game {
     if (balance) {
       this.gameIsOver = true;
       this.gameOver("win");
+      document.getElementById("win-sound").currentTime = 0.5;
+      document.getElementById("win-sound").play();
     }
 
     /*
@@ -142,14 +144,17 @@ class Game {
 
   updateTimer() {
     this.timerClock.textContent = this.timer.splitCount();
-    if (this.timer.currentTime < 5) {
+    if (this.timer.currentTime < 6) {
       this.timerClock.style.color = "red";
     }
     if (this.timer.currentTime <= 0) {
       this.player.lives -= 1;
 
+      document.getElementById("lifelost").currentTime = 0.5;
+      document.getElementById("lifelost").play();
+
       this.timerClock.style.color = "white";
-      this.timer.currentTime = 20;
+      this.timer.currentTime = 5;
       this.player.x = 50;
       this.player.y = this.canvas.height / 2 - this.player.size / 2;
       //borro el array de NPCs
@@ -166,6 +171,8 @@ class Game {
       if (this.player.lives <= 0) {
         this.gameIsOver = true;
         this.gameOver("lose");
+        document.getElementById("gameover").currentTime = 0.5;
+        document.getElementById("gameover").play();
         this.timer.resetCount();
       }
     }

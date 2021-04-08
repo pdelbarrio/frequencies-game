@@ -56,7 +56,7 @@ function createGameScreen() {
           </div>
 
           <div class="score">
-              <span class="label">Score:</span>
+              <span class="label"></span>
               <span class="value"></span>
           </div>
       </header>
@@ -68,6 +68,9 @@ function createGameScreen() {
       <div style="display: none">
         <audio id="background-music" preload="auto" controls="none"  src="sounds/bg-drone.mp3"></audio>
         <audio id="colision-sound" preload="auto" controls="none" src="sounds/sound13.wav"></audio>
+        <audio id="win-sound" preload="auto" controls="none" src="sounds/sound01.mp3"></audio>
+        <audio id="gameover" preload="auto" controls="none" src="sounds/gameover.mp3"></audio>
+        <audio id="lifelost" preload="auto" controls="none" src="sounds/lifelost.mp3"></audio>
       </div>
   </main>
   `);
@@ -86,6 +89,11 @@ function createWinnerScreen() {
       <h2>YOU WIN</h2>
       <div class="text-box">
         <a id="start-button" href="#" class="">START AGAIN</a>
+      </div>
+      <div style="display: none">
+        <audio id="background-music" preload="auto" controls="none"  src="sounds/bg-drone.mp3"></audio>
+        <audio id="colision-sound" preload="auto" controls="none" src="sounds/sound13.wav"></audio>
+        <audio id="win-sound" preload="auto" controls="none" src="sounds/sound01.mp3"></audio>
       </div>
   </main>
   `);
