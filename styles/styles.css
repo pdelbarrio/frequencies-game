@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Digi";
-  src: url("fonts/ds-digib.ttf");
+  src: url("../fonts/ds-digib.ttf");
 }
 
 /* ---- CSS reset ---- */
@@ -32,7 +32,7 @@ html {
 
 body {
   background-color: black;
-  /* background-image: url("./img/bg-main.webm"); */
+  background-image: url("../img/bg-main.webm");
   margin: 0;
   padding: 0;
 }
