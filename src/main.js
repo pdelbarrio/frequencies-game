@@ -70,7 +70,7 @@ function createGameScreen() {
           
       </div>
       <div style="display: none">        
-        <audio id="colision-sound" preload="auto" controls="none" src="sounds/sound13.wav"></audio>
+        <audio id="colision-sound" preload="auto" controls="none" src="sounds/sound1.wav"></audio>
         <audio id="win-sound" preload="auto" controls="none" src="sounds/sound01.mp3"></audio>
         <audio id="gameover" preload="auto" controls="none" src="sounds/gameover.mp3"></audio>
         <audio id="lifelost" preload="auto" controls="none" src="sounds/lifelost.mp3"></audio>

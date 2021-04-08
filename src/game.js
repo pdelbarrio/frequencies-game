@@ -107,7 +107,7 @@ class Game {
         document.getElementById("colision-sound").currentTime = 0.5;
         document.getElementById("colision-sound").play();
         npc.hasBeenBalanced = true;
-        npc.speed = 1;
+        npc.speed = 3;
         
       }
       if (npc.hasBeenBalanced === false) {

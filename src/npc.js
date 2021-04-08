@@ -26,7 +26,7 @@ class Npc extends Entity {
   }
 
   updatePosition() {
-    if (this.counter >= 30) {
+    if (this.counter >= 15) {
       this.counter = 0;
       this.direction = Math.floor(Math.random() * 5);
     }
@@ -55,10 +55,7 @@ class Npc extends Entity {
     }
     this.counter++;
   }
-  // draw() {
-  //   this.ctx.fillStyle = this.color;
-  //   this.ctx.fillRect(this.x, this.y, this.size, this.size);
-  // }
+  
 
   draw(framesCounter) {
     //ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);

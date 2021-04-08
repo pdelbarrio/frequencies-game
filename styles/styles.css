@@ -79,6 +79,10 @@ body {
   font-size: xx-large;
   font-family: "Digi";
 }
+.lives .value{
+  font-size: 2em;
+  font-family: "Digi";
+}
 .container {
   margin: 0 20px;
 }
