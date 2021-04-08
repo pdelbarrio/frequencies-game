@@ -159,4 +159,4 @@ URls for the project repo and deploy [Link Repo](https://github.com/pdelbarrio/f
 
 ### Slides
 
-URls for the project presentation (slides) [Link Slides.com](http://slides.com/)
+URls for the project presentation [Link Slides.com](https://docs.google.com/presentation/d/1Kvlvr_PY9buggDArpTdxO4SjCEyPKqkAucrx3zwd5as/edit?usp=sharing)

@@ -13,7 +13,7 @@
   width: auto;
   height: auto;
   z-index: -1;
-  background: transparent url("/img/bg.jpeg") no-repeat;
+  background: transparent url("../img/bg.jpeg") no-repeat;
   background-position: center center;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
