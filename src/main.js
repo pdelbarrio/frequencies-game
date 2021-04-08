@@ -22,7 +22,11 @@ function createSplashScreen() {
   
   <main class="splashScreen">
       
-      <h2>FREQUENCIES</h2>
+      <p class="glitch">
+      <span>FREQUENCIES</span>
+      FREQUENCIES
+      <span>FREQUENCIES</span>
+      </p>
       <div class="text-box">
         <a id="start-button" href="#" class="">START GAME</a>
       </div>      
@@ -51,7 +55,7 @@ function createGameScreen() {
           </div>
 
           <div class="lives">
-              <span class="label">Lives:</span>
+              <span class="label">LIVES</span>
               <span class="value"></span>
           </div>
 
@@ -86,7 +90,11 @@ function createWinnerScreen() {
   
   <main class="splashScreen">
       
-      <h2>YOU WIN</h2>
+      <p class="glitch">
+        <span>YOU WIN</span>
+        YOU WIN
+        <span>YOU WIN</span>
+      </p>
       <div class="text-box">
         <a id="start-button" href="#" class="">START AGAIN</a>
       </div>
@@ -114,7 +122,11 @@ function createGameOverScreen() {
   
   <main class="splashScreen">
       
-      <h2>GAME OVER</h2>
+      <p class="glitch">
+      <span>GAME OVER</span>
+      GAME OVER
+      <span>GAME OVER</span>
+      </p>
       <div class="text-box">
         <a id="start-button" href="#" class="">START AGAIN</a>
       </div>

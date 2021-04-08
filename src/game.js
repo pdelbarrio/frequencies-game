@@ -65,41 +65,35 @@ class Game {
   startLoop() {
     const loop = () => {
       this.framesCounter++;
-      //1. ACTUALIZAR los estados del jugador y las otras entidades
-      // -- 1.0 Nuestro Player ya está creado en la función start
-      // -- 1.1 Crear los otros NPC en posiciones aleatorias, se crean en start para que no haya loop de creacion de npcs
-
-      // -- 1.2 Comprobar si el Player ha colisionado con algun NPC
+     
       this.updateTimer();
       this.checkCollisions();
 
-      // -- 1.3 Actualizar la posición del jugador y del/los NPC
+      
       this.player.updatePosition();
 
-      // this.npc.updatePosition();
+      
       this.npcs.forEach((npc) => {
         npc.updatePosition();
       });
 
       this.player.handleScreenCollision();
 
-      // -- 1.4 Mover las NPC
-      //
-      //2. LIMPIAR CANVAS
+      
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      //3. DIBUJAR DE NUEVO EL CANVAS CON LAS POSICIONES ACTUALIZADAS
+      
       this.player.draw(this.framesCounter);
 
-      // this.npc.draw();
+      
       this.npcs.forEach((npc) => {
         npc.draw(this.framesCounter);
       });
 
-      //4. ROMPER EL LOOP EN CASO DE GAME OVER (LIVES <=0 O TIMER <=0)
+      
       if (!this.gameIsOver) {
         window.requestAnimationFrame(loop);
       }
-      //5. ACTUALIZAR PUNTUACIÓN Y VIDAS QUE MOSTRAMOS POR PANTALLA (HTML)
+      
       this.updateGameStats();
     };
     window.requestAnimationFrame(loop);
@@ -114,14 +108,14 @@ class Game {
         document.getElementById("colision-sound").play();
         npc.hasBeenBalanced = true;
         npc.speed = 1;
-        // console.log(this.npcs[0], this.npcs[1], this.npcs[2]);
+        
       }
       if (npc.hasBeenBalanced === false) {
         balance = false;
       }
     });
 
-    //Cuando esto funcione ponerlo dentro de un if para gameOver = true
+    
     if (balance) {
       this.gameIsOver = true;
       this.gameOver("win");
@@ -129,27 +123,17 @@ class Game {
       document.getElementById("win-sound").play();
     }
 
-    /*
-    //codigo del GameOver("win") con un solo NPC:
-      //this.player.direction = "stop";
-      this.npc.speed = 0;
-      //Probando lógica del método balance() del Player.
-      //Debería ejecutar el método balance() y seguir el movimiento hasta otro NPC
-      this.player.balance(this.npc);
-      this.npc.color = "red";
-      console.log(this.npc.hasBeenBalanced);
-      //PRIMERA VERSIÓN MVP -> Cuando colisionan PLAYER y NPC - Se llama a winScreen en Main
-      this.gameIsOver = true;
-      this.gameOver("win");
-    }*/
+   
   }
 
   updateTimer() {
     this.timerClock.textContent = this.timer.splitCount();
     if (this.timer.currentTime < 6) {
       this.timerClock.style.color = "red";
+      this.timerClock.style.fontSize = 30;
     }
     if (this.timer.currentTime <= 0) {
+      //Probar un contador de vidas con corazones
       this.player.lives -= 1;
 
       document.getElementById("lifelost").currentTime = 0.5;
@@ -167,9 +151,7 @@ class Game {
         this.npcs.push(newNpc);
       }
 
-      // this.npc.x = (this.canvas.width - this.npc.size) * Math.random();
-      // this.npc.y = (this.canvas.width - this.npc.size) * Math.random();
-
+      
       if (this.player.lives <= 0) {
         this.gameIsOver = true;
         this.gameOver("lose");
