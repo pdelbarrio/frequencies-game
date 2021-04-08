@@ -38,11 +38,11 @@ class Game {
     this.timerClock = document.querySelector(".countdown-timer");
 
     // this.player = new Player(this.canvas, 6, "red", 3);
-    this.player = new Player(this.canvas, 5, "/img/player1.png");
+    this.player = new Player(this.canvas, 5, "img/player1.png");
 
     //Probar con más NPCs
     for (let i = 0; i < this.npcQuantiy; i++) {
-      const newNpc = new Npc(this.canvas, 20, "/img/npc2.png");
+      const newNpc = new Npc(this.canvas, 20, "img/npc2.png");
       this.npcs.push(newNpc);
     }
 
@@ -108,7 +108,7 @@ class Game {
     let balance = true;
     this.npcs.forEach((npc) => {
       if (this.player.didCollide(npc)) {
-        npc.image.src = "/img/player1.png";
+        npc.image.src = "img/player1.png";
 
         document.getElementById("colision-sound").currentTime = 0.5;
         document.getElementById("colision-sound").play();
@@ -163,7 +163,7 @@ class Game {
       this.npcs = [];
       //Vuelvo a crear el array de NPCs
       for (let i = 0; i < this.npcQuantiy; i++) {
-        const newNpc = new Npc(this.canvas, 20, "/img/npc2.png");
+        const newNpc = new Npc(this.canvas, 20, "img/npc2.png");
         this.npcs.push(newNpc);
       }
 
