@@ -102,7 +102,7 @@ class Game {
     let balance = true;
     this.npcs.forEach((npc) => {
       if (this.player.didCollide(npc)) {
-        npc.image.src = "img/player1.png";
+        npc.image.src = "img/npc3.png";
 
         document.getElementById("colision-sound").currentTime = 0.5;
         document.getElementById("colision-sound").play();
