@@ -2,8 +2,11 @@ class Player extends Entity {
   constructor(canvas, speed, playerImgSrc) {
     super(canvas, speed);
 
-    this.width = 100;
-    this.height = 120;
+    // this.width = 100;
+    // this.height = 120;
+
+    this.width = 50;
+    this.height = 60;
 
     this.direction = 0;
 
